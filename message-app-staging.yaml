@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: message-app-staging
+  namespace: argocd
+  environment: staging
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+
+  # Source of the application manifests
+  source:
+    repoURL: https://github.com/pratsgl/message-app-manifests.git
+    targetRevision: HEAD
+    path: manifests/staging
+
+  # Destination cluster and namespace to deploy the application
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: staging
+
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false

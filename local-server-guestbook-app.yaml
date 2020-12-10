@@ -13,4 +13,3 @@ spec:
     targetRevision: master
   syncPolicy:
     automated: {}
-  
