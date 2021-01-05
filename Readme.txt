@@ -1,6 +1,5 @@
-https://itnext.io/argocd-setup-external-clusters-by-name-d3d58a53acb0
-https://levelup.gitconnected.com/integrating-argo-cd-for-your-kubernetes-project-ba6e49dfebaa
 
+https://levelup.gitconnected.com/integrating-argo-cd-for-your-kubernetes-project-ba6e49dfebaa
 
 https://www.velotio.com/engineering-blog/gitops-for-kubernetes-using-argo-cd
 
@@ -19,3 +18,5 @@ Handling connection for 8081
 Forwarding from 172.42.42.100:8081 -> 80
 Handling connection for 8081
 
+Deploy application using CLI
+https://itnext.io/argocd-setup-external-clusters-by-name-d3d58a53acb0
