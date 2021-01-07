@@ -54,7 +54,7 @@ replicaset.apps/argocd-server-547d9bb879        1         1         1       158m
 NAME                                             READY   AGE
 statefulset.apps/argocd-application-controller   1/1     158m
 ``` 
-Since its a NodePort , we need to use Server/Worker node IP to connect to argocd Server
+Since its a NodePort , we can use Server/Worker IP to connect to argocd Server
 
 ```
 $ kubectl get nodes -o wide
@@ -65,7 +65,7 @@ kub-app003   Ready    <none>   103d   v1.19.2   10.164.225.7
 kub-app004   Ready    <none>   103d   v1.19.2   10.164.225.10
 kub-app005   Ready    <none>   103d   v1.19.2   10.164.225.9
 ```
-Open the browser on localhost:8083 and if there are any alerts on the certificate it should be ok because it is a self generated one. On the username put "admin", while the password you can get by running this command (it is the name of the server pod):
+Open the browser on kub-app001:8083 and if there are any alerts on the certificate it should be ok because it is a self generated one. On the username put "admin", while the password you can get by running this command (it is the name of the server pod):
 
 ```
 $ kubectl get pods -n argocd -l app.kubernetes.io/name=argocd-server -o name | cut -d’/’ -f 2
