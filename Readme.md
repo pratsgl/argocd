@@ -79,3 +79,6 @@ https://www.velotio.com/engineering-blog/gitops-for-kubernetes-using-argo-cd
 
 #### Deploy application using CLI
 https://itnext.io/argocd-setup-external-clusters-by-name-d3d58a53acb0
+
+#### Argocd Spec example 
+https://github.com/argoproj/argo-cd/blob/master/docs/operator-manual/project.yaml
