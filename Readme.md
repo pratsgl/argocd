@@ -108,3 +108,4 @@ Congratulations, now you have successfully installed ArgoCD on your Kubernetes C
 
 #### Argo Rollouts - Progressive Delivery for Kubernetes
 - https://github.com/argoproj/argo-rollouts#installation
+- https://argoproj.github.io/argo-rollouts/
