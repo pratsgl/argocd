@@ -4,7 +4,7 @@ ArgoCD helps to deliver applications to Kubernetes by using the GitOps approach,
 ArgoCD spins up its controller in the cluster and watches for changes in a repository to compare it with resources deployed in the cluster, synchronizing their states.
 
 ### Components of ArgoCD
-![Argocd architectrue](https://miro.medium.com/max/857/1*0cQb00oW-XFvp0lCrxrZvg.png "Argocd Components")
+![Argocd architectrue](https://raw.githubusercontent.com/argoproj/argo-cd/master/docs/assets/argocd_architecture.png "Argocd Components")
 
 ArgoCD consists of the three main components — API server, Repository Server, and Application Controller.
  - API server (pod: argocd-server): controls the whole ArgoCD instance, all its operations, authentification, and secrets access which are stored as Kubernetes Secrets, etc
