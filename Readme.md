@@ -105,3 +105,6 @@ Congratulations, now you have successfully installed ArgoCD on your Kubernetes C
 #### Argocd Spec example & others
 - https://github.com/argoproj/argo-cd/blob/master/docs/operator-manual/project.yaml
 - https://github.com/argoproj/argo-cd/tree/master/docs/operator-manual 
+
+#### Argo Rollouts - Progressive Delivery for Kubernetes
+- https://github.com/argoproj/argo-rollouts#installation
