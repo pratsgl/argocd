@@ -16,7 +16,9 @@ We will install ArgoCD, first create the "argocd" namespace and then we will app
 
 ```
 $ kubectl create namespace argocd
+```
 
+```
 $ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/v1.7.8/manifests/install.yaml
 ```
 Next lets check that all the pods are up and running and once they are we can try to connect to the ArgoCD UI
