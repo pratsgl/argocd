@@ -92,8 +92,8 @@ First app with cluster name
 
 On the UI you should see a message like "No applications yet". So lets create one and we will use the cluster name and not the url. We can use the name even when we deploy apps on the local cluster. The app will look like this:
 
-https://levelup.gitconnected.com/integrating-argo-cd-for-your-kubernetes-project-ba6e49dfebaa
-https://www.velotio.com/engineering-blog/gitops-for-kubernetes-using-argo-cd
+- https://levelup.gitconnected.com/integrating-argo-cd-for-your-kubernetes-project-ba6e49dfebaa
+- https://www.velotio.com/engineering-blog/gitops-for-kubernetes-using-argo-cd
 
 #### Deploy application using CLI
 https://itnext.io/argocd-setup-external-clusters-by-name-d3d58a53acb0
