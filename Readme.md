@@ -3,18 +3,17 @@ ArgoCD helps to deliver applications to Kubernetes by using the GitOps approach,
 
 ArgoCD spins up its controller in the cluster and watches for changes in a repository to compare it with resources deployed in the cluster, synchronizing their states.
 
-![Argocd architectrue](C:\Users\g702892\Documents\DevOps\Kubernetes\ArgoCDarchitecture.png "Argocd diagram")
-![MarineGEO circle logo](/assets/img/MarineGEO_logo.png "MarineGEO logo")
-
-Components of ArgoCD
+### Components of ArgoCD
+![Argocd architectrue](https://miro.medium.com/max/857/1*0cQb00oW-XFvp0lCrxrZvg.png "Argocd Components")
 
 ArgoCD consists of the three main components — API server, Repository Server, and Application Controller.
 
-    API server (pod: argocd-server): controls the whole ArgoCD instance, all its operations, authentification, and secrets access which are stored as Kubernetes Secrets, etc
+    	API server (pod: argocd-server): controls the whole ArgoCD instance, all its operations, authentification, and secrets access which are stored as Kubernetes Secrets, etc
+        Application Controller (pod: argocd-application-controller): used to monitor applications in a Kubernetes cluster to make them the same as they are described in a repository, and controls PreSync, Sync, PostSync hooks
 	
-    Repository Server (pod: argocd-repo-server): stores and synchronizes data from configured Git-repositories and generates Kubernetes manifests
+    	Repository Server (pod: argocd-repo-server): stores and synchronizes data from configured Git-repositories and generates Kubernetes manifests
     
-    Application Controller (pod: argocd-application-controller): used to monitor applications in a Kubernetes cluster to make them the same as they are described in a repository, and controls PreSync, Sync, PostSync hooks
+
 	
 Running ArgoCD in Kubernetes
 We will install ArgoCD, first create the "argocd" namespace and then we will apply the 1.7.8 manifests (please stick to this argocd namespace, other name will create problems when using manifests directly and not kustomize):
