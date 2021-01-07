@@ -1,4 +1,4 @@
-# ArgoCD deployment on Kubernetes Cluster
+# ArgoCD 
 
 ![Argocd GitOps](https://miro.medium.com/max/1050/1*8MDBjrYv5W2ANPok4EO3Tg.png  "Argocd Gitops")
 
@@ -36,7 +36,7 @@ manifests when provided the following inputs:
 
 - ArgoCD-Dex-Server : The argocd-dex-server uses an in-memory database. Argo CD embeds and bundles Dex as part of its installation, for the purpose of delegating authentication to an external identity provider. Multiple types of identity providers are supported (OIDC, SAML, LDAP, GitHub, etc...). 
   
-### Running ArgoCD in Kubernetes
+### ArgoCD deployment on Kubernetes Cluster
 We will install ArgoCD, first create the "argocd" namespace and then we will apply the 1.7.8 manifests (please stick to this argocd namespace, other name will create problems when using manifests directly and not kustomize):
 
 ```
