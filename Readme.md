@@ -10,10 +10,8 @@ ArgoCD consists of the three main components — API server, Repository Server, 
 - API server (pod: argocd-server): controls the whole ArgoCD instance, all its operations, authentification, and secrets access which are stored as Kubernetes Secrets, etc
 - Application Controller (pod: argocd-application-controller): used to monitor applications in a Kubernetes cluster to make them the same as they are described in a repository, and controls PreSync, Sync, PostSync hooks
 - Repository Server (pod: argocd-repo-server): stores and synchronizes data from configured Git-repositories and generates Kubernetes manifests
-    
-
-	
-Running ArgoCD in Kubernetes
+    	
+### Running ArgoCD in Kubernetes
 We will install ArgoCD, first create the "argocd" namespace and then we will apply the 1.7.8 manifests (please stick to this argocd namespace, other name will create problems when using manifests directly and not kustomize):
 
 ```
@@ -54,19 +52,15 @@ replicaset.apps/argocd-server-547d9bb879        1         1         1       158m
 NAME                                             READY   AGE
 statefulset.apps/argocd-application-controller   1/1     158m
 ``` 
-
 Since its a NodePort , we need to use Server/Worker node IP to connect to argocd Server
-
-
-
 Open the browser on localhost:8083 and if there are any alerts on the certificate it should be ok because it is a self generated one. On the username put "admin", while the password you can get by running this command (it is the name of the server pod):
+
 ```
 kubectl get pods -n argocd -l app.kubernetes.io/name=argocd-server -o name | cut -d’/’ -f 2
 ```
 First app with cluster name
 
 On the UI you should see a message like "No applications yet". So lets create one and we will use the cluster name and not the url. We can use the name even when we deploy apps on the local cluster. The app will look like this:
-
 
 https://levelup.gitconnected.com/integrating-argo-cd-for-your-kubernetes-project-ba6e49dfebaa
 https://www.velotio.com/engineering-blog/gitops-for-kubernetes-using-argo-cd
