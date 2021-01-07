@@ -11,14 +11,77 @@ ArgoCD consists of the three main components — API server, Repository Server, 
 	
     Repository Server (pod: argocd-repo-server): stores and synchronizes data from configured Git-repositories and generates Kubernetes manifests
     
-	Application Controller (pod: argocd-application-controller): used to monitor applications in a Kubernetes cluster to make them the same as they are described in a repository, and controls PreSync, Sync, PostSync hooks
+    Application Controller (pod: argocd-application-controller): used to monitor applications in a Kubernetes cluster to make them the same as they are described in a repository, and controls PreSync, Sync, PostSync hooks
 	
 Running ArgoCD in Kubernetes
 We will install ArgoCD, first create the "argocd" namespace and then we will apply the 1.7.8 manifests (please stick to this argocd namespace, other name will create problems when using manifests directly and not kustomize):
 
+```
 $ kubectl create namespace argocd
 
 $ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/v1.7.8/manifests/install.yaml
+
+$ kubectl get all -n argocd 
+NAME                                      READY   STATUS    RESTARTS   AGE
+pod/argocd-application-controller-0       1/1     Running   0          158m
+pod/argocd-dex-server-86dc95dfc5-vxsbg    1/1     Running   0          158m
+pod/argocd-redis-6fb68d9df5-phttm         1/1     Running   0          158m
+pod/argocd-repo-server-5fb8df558f-6rw87   1/1     Running   0          158m
+pod/argocd-server-547d9bb879-j2f74        1/1     Running   0          158m
+
+NAME                            TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)                      AGE
+service/argocd-dex-server       ClusterIP   10.109.65.162    <none>        5556/TCP,5557/TCP,5558/TCP   158m
+service/argocd-metrics          ClusterIP   10.102.119.243   <none>        8082/TCP                     158m
+service/argocd-redis            ClusterIP   10.108.158.11    <none>        6379/TCP                     158m
+service/argocd-repo-server      ClusterIP   10.105.235.242   <none>        8081/TCP,8084/TCP            158m
+service/argocd-server           NodePort    10.99.81.251     <none>        80:32715/TCP,443:31491/TCP   158m
+service/argocd-server-metrics   ClusterIP   10.98.231.214    <none>        8083/TCP                     158m
+
+NAME                                 READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/argocd-dex-server    1/1     1            1           158m
+deployment.apps/argocd-redis         1/1     1            1           158m
+deployment.apps/argocd-repo-server   1/1     1            1           158m
+deployment.apps/argocd-server        1/1     1            1           158m
+
+NAME                                            DESIRED   CURRENT   READY   AGE
+replicaset.apps/argocd-dex-server-86dc95dfc5    1         1         1       158m
+replicaset.apps/argocd-redis-6fb68d9df5         1         1         1       158m
+replicaset.apps/argocd-repo-server-5fb8df558f   1         1         1       158m
+replicaset.apps/argocd-server-547d9bb879        1         1         1       158m
+
+NAME                                             READY   AGE
+statefulset.apps/argocd-application-controller   1/1     158m
+``` 
+
+Since its a NodePort , we need to use Server/Worker node IP to connect to argocd Server
+
+[vagrant@kmaster ~]$ argocd login 172.42.42.100:32715 --username admin --password  argocd-server-547d9bb879-j2f74
+WARNING: server certificate had error: x509: cannot validate certificate for 172.42.42.100 because it doesn't contain any IP SANs. Proceed insecurely (y/n)? y
+'admin' logged in successfully
+Context '172.42.42.100:32715' updated
+[vagrant@kmaster ~]$ 
+
+
+[vagrant@kmaster ~]$ argocd app list
+NAME                        CLUSTER  NAMESPACE  PROJECT  STATUS  HEALTH   SYNCPOLICY  CONDITIONS  REPO                                             PATH            TARGET
+local-server-guestbook-app           guestbook  default  Synced  Healthy  <none>      <none>      https://github.com/argoproj/argocd-example-apps  helm-guestbook  master
+
+ 	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--------------
 
 Next lets check that all the pods are up and running and once they are we can try to connect to the ArgoCD UI
 
