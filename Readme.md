@@ -20,7 +20,9 @@ We will install ArgoCD, first create the "argocd" namespace and then we will app
 $ kubectl create namespace argocd
 
 $ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/v1.7.8/manifests/install.yaml
-
+```
+Next lets check that all the pods are up and running and once they are we can try to connect to the ArgoCD UI
+```
 $ kubectl get all -n argocd 
 NAME                                      READY   STATUS    RESTARTS   AGE
 pod/argocd-application-controller-0       1/1     Running   0          158m
@@ -55,45 +57,12 @@ statefulset.apps/argocd-application-controller   1/1     158m
 
 Since its a NodePort , we need to use Server/Worker node IP to connect to argocd Server
 
-[vagrant@kmaster ~]$ argocd login 172.42.42.100:32715 --username admin --password  argocd-server-547d9bb879-j2f74
-WARNING: server certificate had error: x509: cannot validate certificate for 172.42.42.100 because it doesn't contain any IP SANs. Proceed insecurely (y/n)? y
-'admin' logged in successfully
-Context '172.42.42.100:32715' updated
-[vagrant@kmaster ~]$ 
-
-
-[vagrant@kmaster ~]$ argocd app list
-NAME                        CLUSTER  NAMESPACE  PROJECT  STATUS  HEALTH   SYNCPOLICY  CONDITIONS  REPO                                             PATH            TARGET
-local-server-guestbook-app           guestbook  default  Synced  Healthy  <none>      <none>      https://github.com/argoproj/argocd-example-apps  helm-guestbook  master
-
- 	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
---------------
-
-Next lets check that all the pods are up and running and once they are we can try to connect to the ArgoCD UI
-
-#wait for all pods to be running
-$ kubectl get pod -n argocd
-$ kubectl port-forward svc/argocd-server -n argocd 8083:80
 
 
 Open the browser on localhost:8083 and if there are any alerts on the certificate it should be ok because it is a self generated one. On the username put "admin", while the password you can get by running this command (it is the name of the server pod):
-
+```
 kubectl get pods -n argocd -l app.kubernetes.io/name=argocd-server -o name | cut -d’/’ -f 2
-
+```
 First app with cluster name
 
 On the UI you should see a message like "No applications yet". So lets create one and we will use the cluster name and not the url. We can use the name even when we deploy apps on the local cluster. The app will look like this:
