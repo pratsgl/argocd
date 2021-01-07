@@ -55,6 +55,16 @@ NAME                                             READY   AGE
 statefulset.apps/argocd-application-controller   1/1     158m
 ``` 
 Since its a NodePort , we need to use Server/Worker node IP to connect to argocd Server
+
+```
+$ kubectl get nodes -o wide
+NAME         STATUS   ROLES    AGE    VERSION   INTERNAL-IP  
+kub-app001   Ready    master   103d   v1.19.2   10.164.225.6
+kub-app002   Ready    master   103d   v1.19.2   10.164.225.8    
+kub-app003   Ready    <none>   103d   v1.19.2   10.164.225.7    
+kub-app004   Ready    <none>   103d   v1.19.2   10.164.225.10
+kub-app005   Ready    <none>   103d   v1.19.2   10.164.225.9
+```
 Open the browser on localhost:8083 and if there are any alerts on the certificate it should be ok because it is a self generated one. On the username put "admin", while the password you can get by running this command (it is the name of the server pod):
 
 ```
