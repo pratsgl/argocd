@@ -88,9 +88,9 @@ Open the browser on kub-app001:8083 and if there are any alerts on the certifica
 ```
 $ kubectl get pods -n argocd -l app.kubernetes.io/name=argocd-server -o name | cut -d’/’ -f 2
 ```
-First app with cluster name
+Congratulations, now you have successfully installed ArgoCD on your Kubernetes Cluster 
 
-On the UI you should see a message like "No applications yet". So lets create one and we will use the cluster name and not the url. We can use the name even when we deploy apps on the local cluster. The app will look like this:
+#### Use following links to create your 1st prject using ArgoCD 
 
 - https://levelup.gitconnected.com/integrating-argo-cd-for-your-kubernetes-project-ba6e49dfebaa
 - https://www.velotio.com/engineering-blog/gitops-for-kubernetes-using-argo-cd
