@@ -31,7 +31,7 @@ manifests when provided the following inputs:
     	
 - ArgoCD-Redis : Argo CD is largely stateless, all data is persisted as Kubernetes objects, which in turn is stored in Kubernetes' etcd. Redis is only used as a throw-away cache and can be lost. When lost, it will be rebuilt without loss of service.
 
-- ArgoCD-Dex-Server : The argocd-dex-server uses an in-memory database, and two or more instances would have inconsistent data. 
+- ArgoCD-Dex-Server : The argocd-dex-server uses an in-memory database. Argo CD embeds and bundles Dex as part of its installation, for the purpose of delegating authentication to an external identity provider. Multiple types of identity providers are supported (OIDC, SAML, LDAP, GitHub, etc...). 
   
 ### Running ArgoCD in Kubernetes
 We will install ArgoCD, first create the "argocd" namespace and then we will apply the 1.7.8 manifests (please stick to this argocd namespace, other name will create problems when using manifests directly and not kustomize):
