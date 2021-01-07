@@ -29,6 +29,10 @@ manifests when provided the following inputs:
     * application path
     * template specific settings: parameters, ksonnet environments, helm values.yaml
     	
+- ArgoCD-Redis : Argo CD is largely stateless, all data is persisted as Kubernetes objects, which in turn is stored in Kubernetes' etcd. Redis is only used as a throw-away cache and can be lost. When lost, it will be rebuilt without loss of service.
+
+- ArgoCD-Dex-Server : The argocd-dex-server uses an in-memory database, and two or more instances would have inconsistent data. 
+  
 ### Running ArgoCD in Kubernetes
 We will install ArgoCD, first create the "argocd" namespace and then we will apply the 1.7.8 manifests (please stick to this argocd namespace, other name will create problems when using manifests directly and not kustomize):
 
