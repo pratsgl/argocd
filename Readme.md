@@ -8,8 +8,26 @@ ArgoCD spins up its controller in the cluster and watches for changes in a repos
 
 ArgoCD consists of the three main components — API server, Repository Server, and Application Controller.
 - API server (pod: argocd-server): controls the whole ArgoCD instance, all its operations, authentification, and secrets access which are stored as Kubernetes Secrets, etc
-- Application Controller (pod: argocd-application-controller): used to monitor applications in a Kubernetes cluster to make them the same as they are described in a repository, and controls PreSync, Sync, PostSync hooks
-- Repository Server (pod: argocd-repo-server): stores and synchronizes data from configured Git-repositories and generates Kubernetes manifests
+The API server is a gRPC/REST server which exposes the API consumed by the Web UI, CLI, and CI/CD 
+systems. It has the following responsibilities:
+
+* application management and status reporting
+* invoking of application operations (e.g. sync, rollback, user-defined actions)
+* repository and cluster credential management (stored as K8s secrets)
+* authentication and auth delegation to external identity providers
+* RBAC enforcement
+* listener/forwarder for Git webhook events
+
+- Application Controller (pod: argocd-application-controller): used to monitor applications in a Kubernetes cluster to make them the same as they are described in a repository, and controls PreSync, Sync, PostSync hooks .The application controller is a Kubernetes controller which continuously monitors running applications and compares the current, live state against the desired target state (as specified in the repo). It detects `OutOfSync` application state and optionally takes corrective action. It
+is responsible for invoking any user-defined hooks for lifecycle events (PreSync, Sync, PostSync)
+
+- Repository Server (pod: argocd-repo-server): stores and synchronizes data from configured Git-repositories and generates Kubernetes manifests .The repository server is an internal service which maintains a local cache of the Git repository holding the application manifests. It is responsible for generating and returning the Kubernetes
+manifests when provided the following inputs:
+
+* repository URL
+* revision (commit, tag, branch)
+* application path
+* template specific settings: parameters, ksonnet environments, helm values.yaml
     	
 ### Running ArgoCD in Kubernetes
 We will install ArgoCD, first create the "argocd" namespace and then we will apply the 1.7.8 manifests (please stick to this argocd namespace, other name will create problems when using manifests directly and not kustomize):
