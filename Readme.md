@@ -1,4 +1,6 @@
 # ArgoCD deployment on Kubernetes Cluster
+
+![Argocd GitOps](https://miro.medium.com/max/1050/1*8MDBjrYv5W2ANPok4EO3Tg.png  "Argocd Gitops")
 ArgoCD helps to deliver applications to Kubernetes by using the GitOps approach, i.e. when a Git-repository is used as a source of trust, thus all manifest, configs and other data are stored in a repository.
 
 ArgoCD spins up its controller in the cluster and watches for changes in a repository to compare it with resources deployed in the cluster, synchronizing their states.
