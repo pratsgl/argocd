@@ -58,7 +58,7 @@ Since its a NodePort , we need to use Server/Worker node IP to connect to argocd
 Open the browser on localhost:8083 and if there are any alerts on the certificate it should be ok because it is a self generated one. On the username put "admin", while the password you can get by running this command (it is the name of the server pod):
 
 ```
-kubectl get pods -n argocd -l app.kubernetes.io/name=argocd-server -o name | cut -d’/’ -f 2
+$ kubectl get pods -n argocd -l app.kubernetes.io/name=argocd-server -o name | cut -d’/’ -f 2
 ```
 First app with cluster name
 
