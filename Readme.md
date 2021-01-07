@@ -90,7 +90,7 @@ $ kubectl get pods -n argocd -l app.kubernetes.io/name=argocd-server -o name | c
 ```
 Congratulations, now you have successfully installed ArgoCD on your Kubernetes Cluster 
 
-#### Use following links to create your 1st prject using ArgoCD 
+#### Use following links to create your 1st project using ArgoCD 
 
 - https://levelup.gitconnected.com/integrating-argo-cd-for-your-kubernetes-project-ba6e49dfebaa
 - https://www.velotio.com/engineering-blog/gitops-for-kubernetes-using-argo-cd
