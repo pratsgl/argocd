@@ -99,5 +99,5 @@ https://www.velotio.com/engineering-blog/gitops-for-kubernetes-using-argo-cd
 https://itnext.io/argocd-setup-external-clusters-by-name-d3d58a53acb0
 
 #### Argocd Spec example & others
-https://github.com/argoproj/argo-cd/blob/master/docs/operator-manual/project.yaml
-https://github.com/argoproj/argo-cd/tree/master/docs/operator-manual 
+- https://github.com/argoproj/argo-cd/blob/master/docs/operator-manual/project.yaml
+- https://github.com/argoproj/argo-cd/tree/master/docs/operator-manual 
