@@ -92,8 +92,8 @@ kubectl-argo-rollouts: v0.10.2+54343d8
   Compiler: gc
   Platform: linux/amd64
 ```
-#### Getting started with argocd rollouts
-Document:  https://argoproj.github.io/argo-rollouts/getting-started/
+## Getting started with argocd rollouts
+- Document Link:  https://argoproj.github.io/argo-rollouts/getting-started/
 
 ```
 [user@kub-app001 ~]$ cd kubernetes/
