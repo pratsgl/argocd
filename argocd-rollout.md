@@ -534,8 +534,7 @@ When a Rollout has not yet reached its desired state (e.g. it was aborted, or in
 ### Summary
 
 In this guide, we have learned basic capabilities of Argo Rollouts, including:
-
-    -	Deploying a rollout
+* Deploying a rollout
     -	Performing a canary update
     -	Manual promotion
     -	Manual abortion
