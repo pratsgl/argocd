@@ -128,10 +128,11 @@ kubectl-argo-rollouts: v0.10.2+54343d8
 - Document Link:  https://argoproj.github.io/argo-rollouts/getting-started/
 
 ```
-[user@kub-app001 ~]$ cd kubernetes/
-[user@kub-app001 kubernetes]$ ls -ltr
-total 764
--rw-rw-r--. 1 user user 780040 Jan  8 06:22 install.yaml
+[user@kub-app001 ~]$ mkdir -p kubernetes/argocd-rollout-demo
+[user@kub-app001 ~]$ cd kubernetes/argocd-rollout-demo/
+```
+Download rollout.yaml & service.yaml files 
+```
 [user@kub-app001 kubernetes]$ wget  https://raw.githubusercontent.com/argoproj/argo-rollouts/master/docs/getting-started/basic/rollout.yaml
 --2021-01-08 06:24:38--  https://raw.githubusercontent.com/argoproj/argo-rollouts/master/docs/getting-started/basic/rollout.yaml
 Resolving lab-api-proxy.lab.mycompany.com (lab-api-proxy.lab.mycompany.com)... 10.164.246.138
