@@ -2,14 +2,14 @@
 
 This guide will demonstrate various concepts and features of Argo Rollouts by going through deployment, upgrade, promotion, and abortion of a Rollout.
 
-### Requirements
+### Requirements to run argocd rollouts
 
    -  Kubernetes cluster with argo-rollouts controller installed (see install guide)
       	*	https://argoproj.github.io/argo-rollouts/installation/#controller-installation
    -  kubectl with argo-rollouts plugin installed (see install guide)
       	*	https://argoproj.github.io/argo-rollouts/installation/#kubectl-plugin-installation
 
-Install argo-rollouts controller on K8s Cluster
+### Install argo-rollouts controller on K8s Cluster
 ```	
 [user@kub-app001 ~]$ kubectl create namespace argo-rollouts
 namespace/argo-rollouts created
