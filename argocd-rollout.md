@@ -541,5 +541,4 @@ In this guide, we have learned basic capabilities of Argo Rollouts, including:
 
 The Rollout in this basic example did not utilize a ingress controller or service mesh provider to route traffic. Instead, it used normal Kubernetes Service networking (i.e. kube-proxy) to achieve an approximate canary weight, based on the closest ratio of new to old replica counts. As a result, this Rollout had a limitation in that it could only achieve a minimum canary weight of 20%, by scaling 1 of 5 pods to run the new version. In order to achieve much finer grained canaries, an ingress controller or service mesh is necessary.
 
-
-- Source Link : https://argoproj.github.io/argo-rollouts/installation/
+#### Source Link : https://argoproj.github.io/argo-rollouts/installation/
