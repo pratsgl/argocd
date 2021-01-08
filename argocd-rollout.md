@@ -1,6 +1,6 @@
 # Argo Rollouts - Kubernetes Progressive Delivery Controller
 #### What is Argo Rollouts?
-
+---------------------
 Argo Rollouts is a Kubernetes controller and set of CRDs which provide advanced deployment capabilities such as blue-green, canary, canary analysis, experimentation, and progressive delivery features to Kubernetes.
 
 Argo Rollouts (optionally) integrates with ingress controllers and service meshes, leveraging their traffic shaping abilities to gradually shift traffic to the new version during an update. Additionally, Rollouts can query and interpret metrics from various providers to verify key KPIs and drive automated promotion or rollback during an update.
@@ -8,7 +8,7 @@ Argo Rollouts (optionally) integrates with ingress controllers and service meshe
 This guide will demonstrate various concepts and features of Argo Rollouts by going through deployment, upgrade, promotion, and abortion of a Rollout.
 
 #### Why Argo Rollouts ?
-
+---------------------
 Kubernetes Deployments provides the RollingUpdate strategy which provide a basic set of safety guarantees (readiness probes) during an update. However the rolling update strategy faces many limitations:
 
     Few controls over the speed of the rollout
@@ -32,13 +32,15 @@ Features
 
 
 ### Requirements to run argocd rollouts
-
+---------------------
    -  Kubernetes cluster with argo-rollouts controller installed (see install guide)
       	*	https://argoproj.github.io/argo-rollouts/installation/#controller-installation
    -  kubectl with argo-rollouts plugin installed (see install guide)
       	*	https://argoproj.github.io/argo-rollouts/installation/#kubectl-plugin-installation
 
 ### Install argo-rollouts controller on K8s Cluster
+---------------------
+
 ```	
 [user@kub-app001 ~]$ kubectl create namespace argo-rollouts
 namespace/argo-rollouts created
@@ -90,7 +92,7 @@ NAME                                       DESIRED   CURRENT   READY   AGE
 replicaset.apps/argo-rollouts-6f6b9bd669   1         1         1       18m
 ```
 ### Now install argo-rollouts plugin 
-
+---------------------
 ```
 [user@kub-app001 ~]$ curl -LO https://github.com/argoproj/argo-rollouts/releases/latest/download/kubectl-argo-rollouts-linux-amd64
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -122,6 +124,7 @@ kubectl-argo-rollouts: v0.10.2+54343d8
   Platform: linux/amd64
 ```
 ## Getting started with argocd rollouts
+---------------------
 - Document Link:  https://argoproj.github.io/argo-rollouts/getting-started/
 
 ```
