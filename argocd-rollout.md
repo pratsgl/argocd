@@ -5,7 +5,7 @@ This guide will demonstrate various concepts and features of Argo Rollouts by go
 ### Requirements
 
    -  Kubernetes cluster with argo-rollouts controller installed (see install guide)
-   	-	https://argoproj.github.io/argo-rollouts/installation/#controller-installation
+      	*	https://argoproj.github.io/argo-rollouts/installation/#controller-installation
    -  kubectl with argo-rollouts plugin installed (see install guide)
 
 [user@kub-app001 ~]$ kubectl create namespace argo-rollouts
