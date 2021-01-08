@@ -60,7 +60,7 @@ deployment.apps/argo-rollouts   1/1     1            1           18m
 NAME                                       DESIRED   CURRENT   READY   AGE
 replicaset.apps/argo-rollouts-6f6b9bd669   1         1         1       18m
 ```
-Now install argo-rollouts plugin 
+### Now install argo-rollouts plugin 
 
 ```
 [user@kub-app001 ~]$ curl -LO https://github.com/argoproj/argo-rollouts/releases/latest/download/kubectl-argo-rollouts-linux-amd64
