@@ -7,15 +7,11 @@ This guide will demonstrate various concepts and features of Argo Rollouts by go
    -  Kubernetes cluster with argo-rollouts controller installed (see install guide)
    -  kubectl with argo-rollouts plugin installed (see install guide)
 
-
-https://argoproj.github.io/argo-rollouts/installation/
-
-
-[g702892@kub-app001 ~]$ kubectl create namespace argo-rollouts
+[user@kub-app001 ~]$ kubectl create namespace argo-rollouts
 namespace/argo-rollouts created
 
 
-[g702892@kub-app001 ~]$ wget  https://raw.githubusercontent.com/argoproj/argo-rollouts/stable/manifests/install.yaml
+[user@kub-app001 ~]$ wget  https://raw.githubusercontent.com/argoproj/argo-rollouts/stable/manifests/install.yaml
 --2021-01-08 06:12:51--  https://raw.githubusercontent.com/argoproj/argo-rollouts/stable/manifests/install.yaml
 Resolving lab-api-proxy.dalab.syniverse.com (lab-api-proxy.dalab.syniverse.com)... 10.164.246.138
 Connecting to lab-api-proxy.dalab.syniverse.com (lab-api-proxy.dalab.syniverse.com)|10.164.246.138|:8080... connected.
@@ -27,11 +23,11 @@ Saving to: ‘install.yaml’
 
 2021-01-08 06:12:51 (35.2 MB/s) - ‘install.yaml’ saved [780040/780040]
 
-[g702892@kub-app001 ~]$ ls -ltr
+[user@kub-app001 ~]$ ls -ltr
 total 768
--rw-rw-r--. 1 g702892 g702892 780040 Jan  8 06:12 install.yaml
+-rw-rw-r--. 1 user user 780040 Jan  8 06:12 install.yaml
 
-[g702892@kub-app001 ~]$ kubectl apply -n argo-rollouts -f install.yaml
+[user@kub-app001 ~]$ kubectl apply -n argo-rollouts -f install.yaml
 Warning: apiextensions.k8s.io/v1beta1 CustomResourceDefinition is deprecated in v1.16+, unavailable in v1.22+; use apiextensions.k8s.io/v1 CustomResourceDefinition
 customresourcedefinition.apiextensions.k8s.io/analysisruns.argoproj.io unchanged
 customresourcedefinition.apiextensions.k8s.io/analysistemplates.argoproj.io unchanged
@@ -48,7 +44,7 @@ service/argo-rollouts-metrics unchanged
 deployment.apps/argo-rollouts unchanged
 
 
-[g702892@kub-app001 ~]$ kubectl get all -n argo-rollouts
+[user@kub-app001 ~]$ kubectl get all -n argo-rollouts
 NAME                                 READY   STATUS    RESTARTS   AGE
 pod/argo-rollouts-6f6b9bd669-nzr44   1/1     Running   0          18m
 
@@ -60,18 +56,18 @@ deployment.apps/argo-rollouts   1/1     1            1           18m
 
 NAME                                       DESIRED   CURRENT   READY   AGE
 replicaset.apps/argo-rollouts-6f6b9bd669   1         1         1       18m
-[g702892@kub-app001 ~]$
-[g702892@kub-app001 ~]$
-[g702892@kub-app001 ~]$
-[g702892@kub-app001 ~]$ curl -LO https://github.com/argoproj/argo-rollouts/releases/latest/download/kubectl-argo-rollouts-linux-amd64
+[user@kub-app001 ~]$
+[user@kub-app001 ~]$
+[user@kub-app001 ~]$
+[user@kub-app001 ~]$ curl -LO https://github.com/argoproj/argo-rollouts/releases/latest/download/kubectl-argo-rollouts-linux-amd64
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
 curl: (56) Received HTTP code 504 from proxy after CONNECT
-[g702892@kub-app001 ~]$
-[g702892@kub-app001 ~]$
-[g702892@kub-app001 ~]$
-[g702892@kub-app001 ~]$ wget  https://github.com/argoproj/argo-rollouts/releases/latest/download/kubectl-argo-rollouts-linux-amd64
+[user@kub-app001 ~]$
+[user@kub-app001 ~]$
+[user@kub-app001 ~]$
+[user@kub-app001 ~]$ wget  https://github.com/argoproj/argo-rollouts/releases/latest/download/kubectl-argo-rollouts-linux-amd64
 --2021-01-08 06:18:42--  https://github.com/argoproj/argo-rollouts/releases/latest/download/kubectl-argo-rollouts-linux-amd64
 Resolving lab-api-proxy.dalab.syniverse.com (lab-api-proxy.dalab.syniverse.com)... 10.164.246.138
 Connecting to lab-api-proxy.dalab.syniverse.com (lab-api-proxy.dalab.syniverse.com)|10.164.246.138|:8080... connected.
@@ -91,12 +87,12 @@ Saving to: ‘kubectl-argo-rollouts-linux-amd64’
 
 2021-01-08 06:18:54 (4.15 MB/s) - ‘kubectl-argo-rollouts-linux-amd64’ saved [48541136/48541136]
 
-[g702892@kub-app001 ~]$ chmod +x ./kubectl-argo-rollouts-linux-amd64
-[g702892@kub-app001 ~]$
-[g702892@kub-app001 ~]$ sudo mv ./kubectl-argo-rollouts-linux-amd64 /usr/local/bin/kubectl-argo-rollouts
-[g702892@kub-app001 ~]$
-[g702892@kub-app001 ~]$
-[g702892@kub-app001 ~]$ kubectl argo rollouts version
+[user@kub-app001 ~]$ chmod +x ./kubectl-argo-rollouts-linux-amd64
+[user@kub-app001 ~]$
+[user@kub-app001 ~]$ sudo mv ./kubectl-argo-rollouts-linux-amd64 /usr/local/bin/kubectl-argo-rollouts
+[user@kub-app001 ~]$
+[user@kub-app001 ~]$
+[user@kub-app001 ~]$ kubectl argo rollouts version
 kubectl-argo-rollouts: v0.10.2+54343d8
   BuildDate: 2020-12-17T20:46:09Z
   GitCommit: 54343d8c9eb1e4b9f7e87b3da533530199916733
@@ -104,16 +100,16 @@ kubectl-argo-rollouts: v0.10.2+54343d8
   GoVersion: go1.13.1
   Compiler: gc
   Platform: linux/amd64
-[g702892@kub-app001 ~]$
+[user@kub-app001 ~]$
 
 
 https://argoproj.github.io/argo-rollouts/getting-started/
 
-[g702892@kub-app001 ~]$ cd kubernetes/
-[g702892@kub-app001 kubernetes]$ ls -ltr
+[user@kub-app001 ~]$ cd kubernetes/
+[user@kub-app001 kubernetes]$ ls -ltr
 total 764
--rw-rw-r--. 1 g702892 g702892 780040 Jan  8 06:22 install.yaml
-[g702892@kub-app001 kubernetes]$ wget  https://raw.githubusercontent.com/argoproj/argo-rollouts/master/docs/getting-started/basic/rollout.yaml
+-rw-rw-r--. 1 user user 780040 Jan  8 06:22 install.yaml
+[user@kub-app001 kubernetes]$ wget  https://raw.githubusercontent.com/argoproj/argo-rollouts/master/docs/getting-started/basic/rollout.yaml
 --2021-01-08 06:24:38--  https://raw.githubusercontent.com/argoproj/argo-rollouts/master/docs/getting-started/basic/rollout.yaml
 Resolving lab-api-proxy.dalab.syniverse.com (lab-api-proxy.dalab.syniverse.com)... 10.164.246.138
 Connecting to lab-api-proxy.dalab.syniverse.com (lab-api-proxy.dalab.syniverse.com)|10.164.246.138|:8080... connected.
@@ -557,9 +553,4 @@ The Rollout in this basic example did not utilize a ingress controller or servic
 NAME           STRATEGY   STATUS        STEP  SET-WEIGHT  READY  DESIRED  UP-TO-DATE  AVAILABLE
 rollouts-demo  Canary     Healthy       8/8   0           5/5    5        5           5
 
-
-
-
-
-
-
+- Source Link : https://argoproj.github.io/argo-rollouts/installation/
