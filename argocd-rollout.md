@@ -535,9 +535,9 @@ When a Rollout has not yet reached its desired state (e.g. it was aborted, or in
 
 In this guide, we have learned basic capabilities of Argo Rollouts, including:
 * Deploying a rollout
-    -	Performing a canary update
-    -	Manual promotion
-    -	Manual abortion
+* Performing a canary update
+* Manual promotion
+* Manual abortion
 
 The Rollout in this basic example did not utilize a ingress controller or service mesh provider to route traffic. Instead, it used normal Kubernetes Service networking (i.e. kube-proxy) to achieve an approximate canary weight, based on the closest ratio of new to old replica counts. As a result, this Rollout had a limitation in that it could only achieve a minimum canary weight of 20%, by scaling 1 of 5 pods to run the new version. In order to achieve much finer grained canaries, an ingress controller or service mesh is necessary.
 
