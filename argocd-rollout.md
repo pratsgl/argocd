@@ -11,11 +11,11 @@ This guide will demonstrate various concepts and features of Argo Rollouts by go
 ---------------------
 Kubernetes Deployments provides the RollingUpdate strategy which provide a basic set of safety guarantees (readiness probes) during an update. However the rolling update strategy faces many limitations:
 
-    Few controls over the speed of the rollout
-    Inability to control traffic flow to the new version
-    Readiness probes are unsuitable for deeper, stress, or one-time checks
-    No ability to query external metrics to verify an update
-    Can halt the progression, but unable to automatically abort and rollback the update
+   -  	Few controls over the speed of the rollout
+   -  	Inability to control traffic flow to the new version
+   -  	Readiness probes are unsuitable for deeper, stress, or one-time checks
+   -	No ability to query external metrics to verify an update
+   -	Can halt the progression, but unable to automatically abort and rollback the update
 
 For these reasons, in large scale high-volume production environments, a rolling update is often considered too risky of an update procedure since it provides no control over the blast radius, may rollout too aggressively, and provides no automated rollback upon failures.
 Features
