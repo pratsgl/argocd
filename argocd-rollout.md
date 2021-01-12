@@ -410,7 +410,8 @@ Next we will learn how to manually abort a rollout during an update. First, depl
 ```
 [user@kub-app001 kubernetes]$ kubectl argo rollouts set image rollouts-demo rollouts-demo=argoproj/rollouts-demo:red
 rollout "rollouts-demo" image updated
-[user@kub-app001 kubernetes]$
+
+[user@kub-app001 kubernetes]$ kubectl argo rollouts abort rollouts-demo
 
 [user@kub-app001 kubernetes]$ kubectl argo rollouts get rollout rollouts-demo --watch
 
