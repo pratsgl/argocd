@@ -112,3 +112,16 @@ Congratulations, now you have successfully installed ArgoCD on your Kubernetes C
 #### Argo Rollouts - Progressive Delivery for Kubernetes
 - https://github.com/argoproj/argo-rollouts#installation
 - https://argoproj.github.io/argo-rollouts/
+
+#### Argo CD Best practises
+
+1)	Argo CD Production Best Practices (Alexander Matyushentsev)
+Video Link: https://www.youtube.com/watch?v=ESQLqjbM8h0
+
+2)	Argo-based service delivery for multi-tenant, multi-region clusters at Adobe(Aya Ivtsan) 
+Video Link : https://www.youtube.com/watch?v=ESQLqjbM8h0
+
+3)	Argo CD and Stateful Applications - Tips and Tricks! (Christian Hernandez)
+Video Link : https://www.youtube.com/watch?v=_-oVaO4SxLk
+
+4) High Availability : https://argo-cd.readthedocs.io/en/stable/operator-manual/high_availability/ 
